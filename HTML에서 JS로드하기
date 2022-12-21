@@ -1,0 +1,34 @@
+Inline 방식
+  이벤트를 위해서 자바스크립트를 사용한다.
+  
+  onclick="alert('Hello world')" -> 여기에서 onclick=" " 은 HTML 문법, alert('Hello world')는 js문법이다.
+  어떻게 알아? onclick이라는 속성의 값은 js인것이 약속되어있다.
+  
+  정보와 제어가 합쳐져있다. 이렇게 붙어 있으면 유지보수힘들어 -> html/js 분리하는것이 편하다.
+  html은 정보! js는 제어! 가 주 목적
+  
+  script태그가 이러한 문제를 해결
+  
+script 태그 이용
+  <script type="javascript"> html5부터 없어도 된다.
+  
+  <input type="button" id="hw" value="Hello world" />
+  <script> -> 브라우저에서 이 태그를 본 순간 html이 아니라 js로 해석을 한다!
+    var hw = document.getElementById('hw');
+    hw.addEventListener('click', function() {
+      alert('Hello world');
+     })
+  </script>
+  
+  이렇게해서 html과 js를 분리
+  
+외부 파일 로드
+  <script src="./"></script> // ./은 현재 보고있는 폴더안에있는 파일을 찾는다.
+  
+  유지보수적인 측면에서 inline방식이나 script태그보다 더 강력
+  
+onload
+  <head>태그로 <script>태그를 옮긴다면?
+    <head>태그란 : 웹페이지에 사용되는 여러 resource들을 로드하거나, 이 웹페이지 에대한 설명을 여기에 사용
+  <body>태그가 끝나는 지점에 위치시키는것이 더 바람직하다.
+  
